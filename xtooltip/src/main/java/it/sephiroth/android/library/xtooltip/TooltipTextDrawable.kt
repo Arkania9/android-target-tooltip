@@ -249,7 +249,7 @@ internal class TooltipTextDrawable(context: Context, builder: Tooltip.Builder) :
             tmpPoint.set(point.x, point.y)
 
             if (gravity == Tooltip.Gravity.RIGHT || gravity == Tooltip.Gravity.LEFT) {
-                if (tmpPoint.y in top..bottom) {
+                if (tmpPoint.y in top.toFloat()..bottom.toFloat()) {
                     if (top + tmpPoint.y + arrowWeight > maxY) {
                         tmpPoint.y = (maxY - arrowWeight.toFloat() - top.toFloat())
                     } else if (top + tmpPoint.y - arrowWeight < minY) {
@@ -258,8 +258,8 @@ internal class TooltipTextDrawable(context: Context, builder: Tooltip.Builder) :
                     drawPoint = true
                 }
             } else {
-                if (tmpPoint.x in left..right) {
-                    if (tmpPoint.x in left..right) {
+                if (tmpPoint.x in left.toFloat()..right.toFloat()) {
+                    if (tmpPoint.x in left.toFloat()..right.toFloat()) {
                         if (left + tmpPoint.x + arrowWeight > maxX) {
                             tmpPoint.x = (maxX - arrowWeight.toFloat() - left.toFloat())
                         } else if (left + tmpPoint.x - arrowWeight < minX) {
